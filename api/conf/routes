@@ -3,19 +3,20 @@
 # ~~~~
 
 # Project API
-GET        /projects             @controllers.ProjectController.list()
-POST       /projects             @controllers.ProjectController.add()
-PUT        /projects             @controllers.ProjectController.update()
-DELETE     /projects/id/:id      @controllers.ProjectController.remove(id:Long)
+GET           /projects                          @controllers.ProjectController.list()
+POST          /projects                          @controllers.ProjectController.add()
+PUT           /projects                          @controllers.ProjectController.update()
+DELETE        /projects/id/:id                   @controllers.ProjectController.remove(id:Long)
 
 
 # Credit API
-GET        /credits             @controllers.CreditController.list()
-POST       /credits             @controllers.CreditController.add()
-PUT        /credits             @controllers.CreditController.update()
-DELETE     /credits/id/:id      @controllers.CreditController.remove(id:Long)
+GET           /credits                           @controllers.CreditController.list()
+GET           /credits/project/:projectid        @controllers.CreditController.listForProject(projectid:Long)
+POST          /credits                           @controllers.CreditController.add()
+PUT           /credits                           @controllers.CreditController.update()
+DELETE        /credits/id/:id                    @controllers.CreditController.remove(id:Long)
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /*file        controllers.Assets.versioned(path="/public", file: Asset)
+GET           /*file                             controllers.Assets.versioned(path="/public", file: Asset)
 

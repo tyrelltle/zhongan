@@ -14,5 +14,9 @@ Meteor.methods({
     'credit.update':function(json){
         var response=HTTP.call( 'PUT', 'http://localhost:9000/credits',{data:json});
         return response;
+    },
+    'credit.listWithProject':function(projectid){
+        var response=HTTP.call( 'GET', 'http://localhost:9000/credits/project/'+projectid);
+        return response;
     }
 });

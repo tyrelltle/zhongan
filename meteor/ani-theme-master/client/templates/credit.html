@@ -1,8 +1,18 @@
 <Template name="credit">
     <h1>收入<span id="add" style="float:right;cursor: pointer;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></h1>
+
+
+        <select id="select_project_id" class="form-control">
+            <option value="null">选择项目</option>
+        {{#each projects}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+        </select>
+
     <table class="table">
         <thead>
         <tr>
+            <th>项目名</th>
             <th>合同号</th>
             <th>开具时间</th>
             <th>开具金额</th>
@@ -15,6 +25,7 @@
         <tbody>
         {{#each credits}}
             <tr>
+                <td>{{project.name}}</td>
                 <td>{{project.contract}}</td>
                 <td>{{recieptdate}}</td>
                 <td>{{recieptprice}}</td>

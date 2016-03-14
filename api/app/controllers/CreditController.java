@@ -13,6 +13,8 @@ import java.sql.Date;
 
 public class CreditController extends Controller {
 
+
+
     @Transactional
     @BodyParser.Of(BodyParser.Json.class)
     public  Result update() throws Exception {
@@ -47,6 +49,10 @@ public class CreditController extends Controller {
     @Transactional
     public Result list() {
         return ok(Json.toJson(Credit.find.all()));
+    }
+
+    public Result listForProject(long projectid) {
+        return ok(Json.toJson(Credit.find.where().like("project.id",String.valueOf(projectid)).findList()));
     }
 
     @Transactional
