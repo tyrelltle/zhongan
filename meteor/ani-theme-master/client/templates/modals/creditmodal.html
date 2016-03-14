@@ -1,0 +1,45 @@
+<template name="creditmodal">
+    <!-- Modal -->
+    <div class="modal fade" id="addcredit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加新收入</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="hidden" id="hidden_creditid">
+                        <label>项目</label>
+                        <select id="newCreditForm_project_id" class="form-control">
+                            {{#each projects}}
+                                <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <br>
+                        <label>开具时间</label>
+                        <input type="date" id="newCreditForm_recieptdate" class="span3"><br>
+
+                        <label>开具金额</label>
+                        <input type="text" id="newCreditForm_recieptprice" class="span3"><br>
+
+
+                        <label>收款时间</label>
+                        <input type="date" id="newCreditForm_paydate" class="span3"><br>
+
+                        <label>收款金额</label>
+                        <input type="text" id="newCreditForm_payprice" class="span3"><br>
+
+                        <label>额外备注</label>
+                        <input type="text" id="newCreditForm_notes" class="span3"><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消操作</button>
+                    <button id="confirmAdd" type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

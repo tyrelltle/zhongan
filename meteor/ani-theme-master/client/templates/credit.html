@@ -1,0 +1,40 @@
+<Template name="credit">
+    <h1>收入<span id="add" style="float:right;cursor: pointer;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>合同号</th>
+            <th>开具时间</th>
+            <th>开具金额</th>
+            <th>收款时间</th>
+            <th>收款金额</th>
+            <th>备注</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each credits}}
+            <tr>
+                <td>{{project.contract}}</td>
+                <td>{{recieptdate}}</td>
+                <td>{{recieptprice}}</td>
+                <td>{{paydate}}</td>
+                <td>{{payprice}}</td>
+                <td>{{notes}}</td>
+                <td>
+                    <button type="button" id="del" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</button>
+                    <button type="button" id="edit" class="btn btn-default"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>编辑</button>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+
+
+
+
+
+</Template>
+
+

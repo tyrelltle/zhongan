@@ -1,4 +1,4 @@
-Project=new Mongo.Collection('null');
+Project=new Mongo.Collection();
 
 Template.project.rendered = function () {
     Meteor.call('project.list',function(err,response){
@@ -37,7 +37,6 @@ Template.project.events({
             if(err)
                 alert(err);
             else{
-                alert('成功删除!');
                 Project._collection.remove({id:self.id});
             }
         });

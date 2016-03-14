@@ -8,6 +8,14 @@ POST       /projects             @controllers.ProjectController.add()
 PUT        /projects             @controllers.ProjectController.update()
 DELETE     /projects/id/:id      @controllers.ProjectController.remove(id:Long)
 
+
+# Credit API
+GET        /credits             @controllers.CreditController.list()
+POST       /credits             @controllers.CreditController.add()
+PUT        /credits             @controllers.CreditController.update()
+DELETE     /credits/id/:id      @controllers.CreditController.remove(id:Long)
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET        /*file        controllers.Assets.versioned(path="/public", file: Asset)
 

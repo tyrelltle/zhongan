@@ -14,7 +14,6 @@ resolvers += Resolver.mavenLocal
 libraryDependencies ++= Seq(
   // If you enable PlayEbean plugin you must remove these
   // JPA dependencies to avoid conflicts.
-  javaJpa,
   "org.hibernate" % "hibernate-entitymanager" % "4.3.10.Final",
   "mysql" % "mysql-connector-java" % "5.1.36",
   cache,

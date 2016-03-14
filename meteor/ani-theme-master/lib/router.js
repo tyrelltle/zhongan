@@ -40,7 +40,10 @@ Router.route('project', {
   path: '/dashboard/project'
 });
 
-
+Router.route('credit', {
+  layoutTemplate: 'dashboard',
+  path: '/dashboard/credit'
+});
 
 Router.route('overview', {
   layoutTemplate: 'dashboard',
