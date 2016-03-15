@@ -12,4 +12,10 @@ if(Meteor.isClient){
 		}
 	};
 
+	Template.overview.events({
+		'click #nonimpl':function(){
+			alert("对不起此功能正在建设中!");
+		}
+	});
+
 }

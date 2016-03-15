@@ -45,6 +45,11 @@ Router.route('credit', {
   path: '/dashboard/credit'
 });
 
+Router.route('debit', {
+  layoutTemplate: 'dashboard',
+  path: '/dashboard/debit'
+});
+
 Router.route('overview', {
   layoutTemplate: 'dashboard',
   path: '/dashboard/overview'

@@ -29,7 +29,7 @@ Template.creditmodal.events({
                     alert("添加成功!");
                     var id=obj.id;
                     delete obj.id;
-                    Project._collection.update({id:parseInt(id)},{$set:obj});
+                    Credit._collection.update({id:parseInt(id)},{$set:obj});
                     $('#addcredit_modal').modal('hide');
                 }
             });

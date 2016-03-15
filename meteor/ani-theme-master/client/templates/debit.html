@@ -1,0 +1,56 @@
+<Template name="debit">
+    <div class="ui-view main">
+    <h1>收入<span id="add" style="float:right;cursor: pointer;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></h1>
+
+
+        <select id="select_project_id" class="form-control">
+            <option value="null">选择项目</option>
+        {{#each projects}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+        </select>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>项目名</th>
+            <th>合同号</th>
+            <th>支票号</th>
+            <th>时间</th>
+            <th>金额</th>
+            <th>收款厂家</th>
+            <th>厂家发票开具情况</th>
+            <th>收款人</th>
+            <th>备注</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each debits}}
+            <tr>
+                <td>{{project.name}}</td>
+                <td>{{project.contract}}</td>
+                <td>{{recieptnumber}}</td>
+                <td>{{date}}</td>
+                <td>{{price}}</td>
+                <td>{{paidorg}}</td>
+                <td>{{recieptstatus}}</td>
+                <td>{{payee}}</td>
+                <td>{{notes}}</td>
+
+                <td>
+                    <button type="button" id="del" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</button>
+                    <button type="button" id="edit" class="btn btn-default"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>编辑</button>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+</Template>
+
+

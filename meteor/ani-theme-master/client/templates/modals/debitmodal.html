@@ -1,0 +1,51 @@
+<template name="debitmodal">
+    <!-- Modal -->
+    <div class="modal fade" id="adddebit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加新支出</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="hidden" id="hidden_debitid">
+                        <label>项目</label>
+                        <select id="newDebitForm_project_id" class="form-control">
+                            {{#each projects}}
+                                <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <br>
+                        <label>支票号</label>
+                        <input type="text" id="newDebitForm_recieptnumber" class="span3"><br>
+
+                        <label>时间</label>
+                        <input type="date" id="newDebitForm_date" class="span3"><br>
+
+
+                        <label>金额</label>
+                        <input type="text" id="newDebitForm_price" class="span3"><br>
+
+                        <label>收款厂家</label>
+                        <input type="text" id="newDebitForm_paidorg" class="span3"><br>
+
+                        <label>厂家发票开具情况</label>
+                        <input type="text" id="newDebitForm_recieptstatus" class="span3"><br>
+
+                        <label>收款人</label>
+                        <input type="text" id="newDebitForm_payee" class="span3"><br>
+
+                        <label>备注</label>
+                        <input type="text" id="newDebitForm_notes" class="span3"><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消操作</button>
+                    <button id="confirmAdd" type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -16,6 +16,13 @@ POST          /credits                           @controllers.CreditController.a
 PUT           /credits                           @controllers.CreditController.update()
 DELETE        /credits/id/:id                    @controllers.CreditController.remove(id:Long)
 
+# Debit API
+GET           /debits                            @controllers.DebitController.list()
+GET           /debits/project/:projectid         @controllers.DebitController.listForProject(projectid:Long)
+POST          /debits                            @controllers.DebitController.add()
+PUT           /debits                            @controllers.DebitController.update()
+DELETE        /debits/id/:id                     @controllers.DebitController.remove(id:Long)
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET           /*file                             controllers.Assets.versioned(path="/public", file: Asset)
