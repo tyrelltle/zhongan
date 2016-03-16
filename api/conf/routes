@@ -23,6 +23,8 @@ POST          /debits                            @controllers.DebitController.ad
 PUT           /debits                            @controllers.DebitController.update()
 DELETE        /debits/id/:id                     @controllers.DebitController.remove(id:Long)
 
+#Analytics API
+GET           /analytics                         @controllers.AnalyticsController.summary()
 
 # Map static resources from the /public folder to the /assets URL path
 GET           /*file                             controllers.Assets.versioned(path="/public", file: Asset)

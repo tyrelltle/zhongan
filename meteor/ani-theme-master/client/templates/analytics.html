@@ -1,0 +1,26 @@
+<Template name="analytics">
+    <h1>项目统计概况<span id="add" style="float:right;cursor: pointer;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>项目名</th>
+            <th>合同号</th>
+            <th>总收入</th>
+            <th>总支出</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each lines}}
+            <tr>
+                <td>{{projectname}}</td>
+                <td>{{contractname}}</td>
+                <td>{{credit}}</td>
+                <td>{{debit}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</Template>
+
+

@@ -50,6 +50,12 @@ Router.route('debit', {
   path: '/dashboard/debit'
 });
 
+Router.route('analytics', {
+  layoutTemplate: 'dashboard',
+  path: '/dashboard/analytics'
+});
+
+
 Router.route('overview', {
   layoutTemplate: 'dashboard',
   path: '/dashboard/overview'
