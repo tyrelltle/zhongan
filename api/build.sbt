@@ -19,7 +19,14 @@ libraryDependencies ++= Seq(
   cache,
   javaWs,
   "org.assertj" % "assertj-core" % "3.1.0" % "test",
-  "org.apache.commons" % "commons-lang3" % "3.4"
+  "org.apache.commons" % "commons-lang3" % "3.4",
+  "org.webjars.npm" % "jquery" % "3.0.0-beta1",
+  "org.webjars" % "angularjs" % "1.3.0-beta.2",
+  "org.webjars" % "requirejs" % "2.1.11-1",
+  "org.webjars" % "angular-ui-bootstrap" % "1.2.1",
+  "org.webjars.bower" % "fontawesome" % "4.5.0",
+  "org.webjars" % "chartjs" % "26962ce-1",
+  "org.webjars.bower" % "angular-chart.js" % "0.8.8"
 )
 
 // Play provides two styles of routers, one expects its actions to be injected, the
@@ -49,4 +56,4 @@ dockerExposedPorts in Docker := Seq(9000, 9443)
 //dockerUpdateLatest := true
 
 // run this with: docker run -p 9000:9000 <name>:<version>
-
+includeFilter in (Assets, LessKeys.less) := "app.less"

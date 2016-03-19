@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My AngularJS App</title>
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("img/favicon.png")">
+    <link rel="stylesheet" href="@routes.Assets.versioned("app.css")">
+    <link rel="stylesheet" href="@routes.Assets.versioned("css/mine-blockmenus.css")">
+    <link rel="stylesheet" href="@routes.Assets.versioned("css/mine-chart.css")">
+    <link rel="stylesheet" href="@routes.Assets.versioned("lib/fontawesome/css/font-awesome.min.css")">
+
+    <script data-main="@routes.Assets.versioned("js/main2.js")" src="@routes.Assets.versioned("lib/requirejs/require.js")"></script>
+  </head>
+  <body>
+    <div class="dashboard-page ui-view">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3 col-md-2 sidebar">
+            <div class="text-center">
+              <h2 class="brand">中安公司 <br /><small>项目账务系统</small></h2>
+              <img src="@routes.Assets.versioned("img/flat-avatar.png")" class="user-avatar" />
+              <br />
+              <a href="/login" class="btn btn-white btn-outline btn-rounded btn-sm">Logout</a>
+            </div>
+
+            <ul class="nav nav-sidebar">
+              <li>
+                <a href="/">回首页</a>
+              </li>
+              <li>
+                <a href="#project">项目管理</a>
+              </li>
+              <li>
+                <a href="#credit">项目收入</a>
+              </li>
+              <li>
+                <a href="#debit">项目支出</a>
+              </li>
+              <li>
+                <a href="#analytics">项目报表</a>
+              </li>
+                <!--<li>
+              <a href="/dashboard/overview">Overview</a>
+            </li>
+            <li>
+              <a href="/dashboard/reports">Reports</a>
+            </li>-->
+            </ul>
+          </div>
+
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ng-scope ui-view" ng-view></div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+  </body>
+</html>

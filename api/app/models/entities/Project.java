@@ -29,6 +29,37 @@ public class Project extends  com.avaje.ebean.Model{
     return name;
   }
 
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getContract() {
+    return contract;
+  }
+
+  public void setContract(String contract) {
+    this.contract = contract;
+  }
+
+  public String getPrice() {
+    return price;
+  }
+
+  public void setPrice(String price) {
+    this.price = price;
+  }
+
+  public static Finder<Long, Project> getFind() {
+    return find;
+  }
+
+  public static void setFind(Finder<Long, Project> find) {
+    Project.find = find;
+  }
 
   public static Finder<Long, Project> find = new Finder<Long,Project>(Project.class);
 

@@ -19,18 +19,21 @@ public class DebitController extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public  Result update() throws Exception {
         JsonNode json = request().body().asJson();
-        String id=json.findPath("id").textValue();
-        Debit d=Debit.find.byId(Long.valueOf(id));
+        Long id=json.findPath("id").asLong();
+        Debit d=Debit.find.byId(id);
         if(d==null)
             throw new Exception("debit not found");
 
-        d.date = Date.valueOf(json.findPath("date").textValue());
-        d.recieptnumber=json.findPath("recieptnumber").textValue();
-        d.price=json.findPath("price").textValue();
-        d.paidorg=json.findPath("paidorg").textValue();
-        d.recieptstatus=json.findPath("recieptstatus").textValue();
-        d.payee=json.findPath("payee").textValue();
-        d.notes=json.findPath("notes").textValue();
+        Project p=Project.find.byId(json.findPath("project_id").asLong());
+        if(p!=null)
+            d.setProject(p);
+        d.setDate(Date.valueOf(json.findPath("date").textValue()));
+        d.setRecieptnumber(json.findPath("recieptnumber").textValue());
+        d.setPrice(json.findPath("price").textValue());
+        d.setPaidorg(json.findPath("paidorg").textValue());
+        d.setRecieptstatus(json.findPath("recieptstatus").textValue());
+        d.setPayee(json.findPath("payee").textValue());
+        d.setNotes(json.findPath("notes").textValue());
 
         d.update();
         return ok();
@@ -64,13 +67,13 @@ public class DebitController extends Controller {
         if(p==null)
             throw new Exception("no project found with id "+json.findPath("project_id").longValue());
         d.project=p;
-        d.date = Date.valueOf(json.findPath("date").textValue());
-        d.recieptnumber=json.findPath("recieptnumber").textValue();
-        d.price=json.findPath("price").textValue();
-        d.paidorg=json.findPath("paidorg").textValue();
-        d.recieptstatus=json.findPath("recieptstatus").textValue();
-        d.payee=json.findPath("payee").textValue();
-        d.notes=json.findPath("notes").textValue();
+        d.setDate(Date.valueOf(json.findPath("date").textValue()));
+        d.setRecieptnumber(json.findPath("recieptnumber").textValue());
+        d.setPrice(json.findPath("price").textValue());
+        d.setPaidorg(json.findPath("paidorg").textValue());
+        d.setRecieptstatus(json.findPath("recieptstatus").textValue());
+        d.setPayee(json.findPath("payee").textValue());
+        d.setNotes(json.findPath("notes").textValue());
         d.save();
         return ok(Json.toJson(d));
 

@@ -19,20 +19,18 @@ public class CreditController extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public  Result update() throws Exception {
         JsonNode json = request().body().asJson();
-        String id=json.findPath("id").textValue();
-        String name = json.findPath("name").textValue();
-        String contract=json.findPath("contract").textValue();
-        String price=json.findPath("price").textValue();
-        Credit p=Credit.find.byId(Long.valueOf(id));
+        Long id=json.findPath("id").asLong();
+        Credit p=Credit.find.byId(id);
         if(p==null)
             throw new Exception("credit not found");
-
-        p.notes=json.findPath("notes").textValue();
-        p.paydate=Date.valueOf(json.findPath("paydate").textValue());
-        p.recieptdate =Date.valueOf(json.findPath("recieptdate").textValue());
-        p.notes=json.findPath("notes").textValue();
-        p.payprice=json.findPath("payprice").textValue();
-        p.recieptprice=json.findPath("recieptprice").textValue();
+        Project proj=Project.find.byId(json.findPath("project_id").asLong());
+        if(proj!=null)
+            p.setProject(proj);
+        p.setNotes(json.findPath("notes").textValue());
+        p.setPaydate(Date.valueOf(json.findPath("paydate").textValue()));
+        p.setRecieptdate(Date.valueOf(json.findPath("recieptdate").textValue()));
+        p.setPayprice(json.findPath("payprice").textValue());
+        p.setRecieptprice(json.findPath("recieptprice").textValue());
         p.update();
         return ok();
     }
@@ -65,12 +63,11 @@ public class CreditController extends Controller {
         if(p==null)
             throw new Exception("no project found with id "+json.findPath("project_id").longValue());
         credit.project=p;
-        credit.notes=json.findPath("notes").textValue();
-        credit.paydate=Date.valueOf(json.findPath("paydate").textValue());
-        credit.recieptdate =Date.valueOf(json.findPath("recieptdate").textValue());
-        credit.notes=json.findPath("notes").textValue();
-        credit.payprice=json.findPath("payprice").textValue();
-        credit.recieptprice=json.findPath("recieptprice").textValue();
+        credit.setNotes(json.findPath("notes").textValue());
+        credit.setPaydate(Date.valueOf(json.findPath("paydate").textValue()));
+        credit.setRecieptdate(Date.valueOf(json.findPath("recieptdate").textValue()));
+        credit.setPayprice(json.findPath("payprice").textValue());
+        credit.setRecieptprice(json.findPath("recieptprice").textValue());
         credit.save();
         return ok(Json.toJson(credit));
 

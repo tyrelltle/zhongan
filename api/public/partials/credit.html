@@ -1,0 +1,82 @@
+    <h1>项目收入<span id="add" ng-click="add()" style="float:right;cursor: pointer;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></h1>
+    <br>
+        <h3>选择项目</h3>
+        <select style="width:400px" ng-model="project" ng-options="p.id as p.name for p in projects" class="form-control">
+            <option value="-1">选择项目</option>
+        </select>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>项目名</th>
+            <th>合同号</th>
+            <th>开具时间</th>
+            <th>开具金额</th>
+            <th>收款时间</th>
+            <th>收款金额</th>
+            <th>备注</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="credit in credits">
+
+                <td>{{credit.project.name}}</td>
+                <td>{{credit.project.contract}}</td>
+                <td>{{toDateString(credit.recieptdate)}}</td>
+                <td>{{credit.recieptprice}}</td>
+                <td>{{toDateString(credit.paydate)}}</td>
+                <td>{{credit.payprice}}</td>
+                <td>{{credit.notes}}</td>
+                <td>
+                    <button ng-click="remove(credit.id,$index)" type="button" id="del" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</button>
+                    <button ng-click="edit(credit.id,$index)" type="button" id="edit" class="btn btn-default"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>编辑</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <!-- Modal -->
+    <script type="text/ng-template" id="creditmodal.html">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">添加/编辑收入</h4>
+        </div>
+        <div class="modal-body">
+            <form>
+                <input type="hidden" id="hidden_creditid">
+                <label>项目</label>
+                <select ng-model="credit.project_id" ng-options="p.id as p.name for p in projects" class="form-control">
+                </select>
+                <br>
+                <label>开具时间</label>
+                <input type="date" id="newCreditForm_recieptdate" class="span3" ng-model="credit.recieptdate"><br>
+
+                <label>开具金额</label>
+                <input type="text" id="newCreditForm_recieptprice" class="span3" ng-model="credit.recieptprice"><br>
+
+
+                <label>收款时间</label>
+                <input type="date" id="newCreditForm_paydate" class="span3" ng-model="credit.paydate"><br>
+
+                <label>收款金额</label>
+                <input type="text" id="newCreditForm_payprice" class="span3" ng-model="credit.payprice"><br>
+
+                <label>额外备注</label>
+                <input type="text" id="newCreditForm_notes" class="span3" ng-model="credit.notes"><br>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">取消操作</button>
+            <button id="confirmAdd" type="button" class="btn btn-primary" ng-click="ok()">确定</button>
+        </div>
+    </script>
+
+
+
+

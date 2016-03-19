@@ -12,3 +12,5 @@ skip-character-set-client-handshake
 
 
 
+#docker meteor
+http://krishamoud.me/deploying-meteor-to-aws-ecs/

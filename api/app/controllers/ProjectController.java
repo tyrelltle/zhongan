@@ -14,17 +14,17 @@ public class ProjectController extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public  Result update() throws Exception {
         JsonNode json = request().body().asJson();
-        String id=json.findPath("id").textValue();
+        Long id=json.findPath("id").asLong();
         String name = json.findPath("name").textValue();
         String contract=json.findPath("contract").textValue();
         String price=json.findPath("price").textValue();
-        Project p=Project.find.byId(Long.valueOf(id));
+        Project p=Project.find.byId(id);
         if(p==null)
             throw new Exception("project not found");
 
-        p.name=name;
-        p.contract=contract;
-        p.price=price;
+        p.setName(name);
+        p.setContract(contract);
+        p.setPrice(price);
         p.update();
         return ok();
     }

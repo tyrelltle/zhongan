@@ -1,0 +1,24 @@
+    <h1>项目统计概况</h1>
+    <br><br>
+    <div id="js-legend" class="chart-legend"></div>
+    <canvas id="bar" class="chart chart-bar" chart-data="data" chart-options="chartoptions" chart-labels="labels" chart-series="series"></canvas>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>项目名</th>
+            <th>合同号</th>
+            <th>总收入</th>
+            <th>总支出</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="line in summaries">
+                <td>{{line.projectname}}</td>
+                <td>{{line.contractname}}</td>
+                <td>{{line.credit}}</td>
+                <td>{{line.debit}}</td>
+            </tr>
+        </tbody>
+    </table>
+

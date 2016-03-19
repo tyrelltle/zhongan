@@ -1,0 +1,91 @@
+    <h1>项目支出<span id="add" ng-click="add()" style="float:right;cursor: pointer;" class="glyphicon glyphicon-plus" aria-hidden="true"></span></h1>
+    <br>
+        <h3>选择项目</h3>
+        <select style="width:400px" ng-model="project" ng-options="p.id as p.name for p in projects" class="form-control">
+            <option value="-1">选择项目</option>
+        </select>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>项目名</th>
+            <th>合同号</th>
+            <th>支票号</th>
+            <th>时间</th>
+            <th>金额</th>
+            <th>收款厂家</th>
+            <th>厂家发票开具情况</th>
+            <th>收款人</th>
+            <th>备注</th>
+        </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="debit in debits">
+
+                <td>{{debit.project.name}}</td>
+                <td>{{debit.project.contract}}</td>
+                <td>{{debit.recieptnumber}}</td>
+                <td>{{toDateString(debit.date)}}</td>
+                <td>{{debit.price}}</td>
+                <td>{{debit.paidorg}}</td>
+                <td>{{debit.recieptstatus}}</td>
+                <td>{{debit.payee}}</td>
+                <td>{{debit.notes}}</td>
+                <td>
+                    <button ng-click="remove(debit.id,$index)" type="button" id="del" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</button>
+                    <button ng-click="edit(debit.id,$index)" type="button" id="edit" class="btn btn-default"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>编辑</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <!-- Modal -->
+    <script type="text/ng-template" id="debitmodal.html">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">添加/编辑支出</h4>
+        </div>
+        <div class="modal-body">
+            <form>
+                <input type="hidden" id="hidden_debitid">
+                <label>项目</label>
+                <select ng-model="debit.project_id" ng-options="p.id as p.name for p in projects" class="form-control">
+                </select>
+                <br>
+                <label>支票号</label>
+                <input type="text" id="newDebitForm_recieptnumber" class="span3" ng-model="debit.recieptnumber"><br>
+
+                <label>时间</label>
+                <input type="date" id="newDebitForm_date" class="span3" ng-model="debit.date"><br>
+
+
+                <label>金额</label>
+                <input type="text" id="newDebitForm_price" class="span3" ng-model="debit.price"><br>
+
+                <label>收款厂家</label>
+                <input type="text" id="newDebitForm_paidorg" class="span3" ng-model="debit.paidorg"><br>
+
+                <label>厂家发票开具情况</label>
+                <input type="text" id="newDebitForm_recieptstatus" class="span3" ng-model="debit.recieptstatus"><br>
+
+                <label>收款人</label>
+                <input type="text" id="newDebitForm_payee" class="span3" ng-model="debit.payee"><br>
+
+                <label>备注</label>
+                <input type="text" id="newDebitForm_notes" class="span3" ng-model="debit.notes"><br>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">取消操作</button>
+            <button id="confirmAdd" type="button" class="btn btn-primary" ng-click="ok()">确定</button>
+        </div>
+    </script>
+
+
+
+
