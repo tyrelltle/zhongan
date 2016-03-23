@@ -26,7 +26,9 @@ libraryDependencies ++= Seq(
   "org.webjars" % "angular-ui-bootstrap" % "1.2.1",
   "org.webjars.bower" % "fontawesome" % "4.5.0",
   "org.webjars" % "chartjs" % "26962ce-1",
-  "org.webjars.bower" % "angular-chart.js" % "0.8.8"
+  "org.webjars.bower" % "angular-chart.js" % "0.8.8",
+  "org.mindrot" % "jbcrypt" % "0.3m"
+
 )
 
 // Play provides two styles of routers, one expects its actions to be injected, the

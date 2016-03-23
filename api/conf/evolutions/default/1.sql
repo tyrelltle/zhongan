@@ -36,6 +36,19 @@ create table project (
   constraint pk_project primary key (id))
 ;
 
+create table user (
+  id                        bigint auto_increment not null,
+  email                     varchar(255),
+  fullname                  varchar(255),
+  confirmation_token        varchar(255),
+  password_hash             varchar(255),
+  date_creation             datetime(6),
+  validated                 tinyint(1) default 0,
+  constraint uq_user_email unique (email),
+  constraint uq_user_fullname unique (fullname),
+  constraint pk_user primary key (id))
+;
+
 alter table credit add constraint fk_credit_project_1 foreign key (projectid) references project (id) on delete restrict on update restrict;
 create index ix_credit_project_1 on credit (projectid);
 alter table debit add constraint fk_debit_project_2 foreign key (projectid) references project (id) on delete restrict on update restrict;
@@ -52,6 +65,8 @@ drop table credit;
 drop table debit;
 
 drop table project;
+
+drop table user;
 
 SET FOREIGN_KEY_CHECKS=1;
 

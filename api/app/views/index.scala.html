@@ -1,3 +1,5 @@
+@(form: Form[PageRoutes.Login])
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,11 +9,27 @@
     <link rel="stylesheet" href="@routes.Assets.versioned("app.css")">
     <link rel="stylesheet" href="@routes.Assets.versioned("css/mine-blockmenus.css")">
     <link rel="stylesheet" href="@routes.Assets.versioned("css/mine-chart.css")">
-    <script data-main="@routes.Assets.versioned("js/main.js")" src="@routes.Assets.versioned("lib/requirejs/require.js")"></script>
   </head>
   <body>
-
-    <div ng-view></div>
+    <div class="login-page ng-scope ui-view">
+      <div class="row">
+        <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+          <img src="img/flat-avatar.png" class="user-avatar" />
+          <h1>中安公司 <small>项目账务管理系统</small></h1>
+            @helper.form(routes.PageRoutes.authenticate(), 'class -> "ng-pristine ng-valid") {
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" name="email" class="form-control input-underline input-lg" placeholder="Email" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control input-underline input-lg" placeholder="Password" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-white btn-outline btn-lg btn-rounded">Login</button>
+            }
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>

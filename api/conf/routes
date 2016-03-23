@@ -3,8 +3,11 @@
 # ~~~~
 
 # Page Routes
-GET           /                                  @controllers.PageRoutes.index()
-GET           /dashboard                         @controllers.PageRoutes.dashboard()
+GET           /login                             @controllers.PageRoutes.index()
+POST          /login                             @controllers.PageRoutes.authenticate()
+GET          /logout                             @controllers.PageRoutes.logout()
+
+GET           /                                  @controllers.PageRoutes.dashboard()
 
 # Project API
 GET           /projects                          @controllers.ProjectController.list()

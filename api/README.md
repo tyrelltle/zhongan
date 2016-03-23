@@ -23,3 +23,6 @@ docker push tyrelltle/zhongan
 -----pull and run
 docker pull tyrelltle/zhongan
 docker run --name play -p 80:9000 -e "JDBC_URL=jdbc:mysql://172.17.0.2/test?useUnicode=true&characterEncoding=utf8" tyrelltle/zhongan
+
+
+--proper authentication: https://github.com/yesnault/PlayStartApp/blob/master/app/controllers/Application.java
