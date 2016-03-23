@@ -9,7 +9,7 @@ requirejs.config({
     'angular-ui-bootstrap': ['../lib/angular-ui-bootstrap/ui-bootstrap-tpls'],
     'jquery': '../lib/jquery/dist/jquery.min',
       'chart':'../lib/Chart.js/Chart',
-      'angular-chart': '../lib/angular-chart.js/angular-chart.min'
+      'angular-chart': '../lib/angular-chart.js/dist/angular-chart.min'
   },
   shim: {
     'angular': {
